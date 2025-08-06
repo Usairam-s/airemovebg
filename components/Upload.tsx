@@ -14,6 +14,10 @@ interface UploadResponse {
   filePath: string;
 }
 
+interface UploadError {
+  message: string;
+}
+
 const Upload = () => {
   const [isUploading, setIsUploading] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
@@ -48,7 +52,7 @@ const Upload = () => {
     }
   };
 
-  const onError = (error: any) => {
+  const onError = (error: UploadError) => {
     console.error("Upload error:", error);
     setIsUploading(false);
     setError("Upload failed. Please try again.");
@@ -270,7 +274,7 @@ const Upload = () => {
                             <div className="text-sm text-gray-600 text-center p-3 bg-blue-50 rounded-lg">
                               💡 <strong>Pro tip:</strong> For high-resolution
                               images, click download and wait a few seconds if
-                              the preview doesn't load immediately.
+                              the preview doesn&apos;t load immediately.
                             </div>
                             <div className="flex justify-center">
                               <a
