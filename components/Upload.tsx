@@ -63,6 +63,7 @@ const Upload = () => {
       await sendToWebhook(response);
       setIsProcessing(false);
     } catch (error) {
+      console.error("Processing error:", error);
       setError("Failed to process image. Please try again.");
       setIsProcessing(false);
     }

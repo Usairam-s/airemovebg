@@ -15,6 +15,7 @@ export async function GET() {
       signature,
     });
   } catch (error) {
+    console.error("Processing error:", error);
     return NextResponse.json(
       { error: "Authentication failed" },
       { status: 500 }
